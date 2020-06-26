@@ -1,7 +1,10 @@
 package com.example.contactsapp.Views;
 
 
+import com.example.contactsapp.Room.ContactItemEntity;
 import com.example.contactsapp.base_views.ObservableViewMvc;
+
+import java.util.List;
 
 public interface ContactsListMVCInter extends ObservableViewMvc<ContactsListMVCInter.Listener> {
 
@@ -9,6 +12,6 @@ public interface ContactsListMVCInter extends ObservableViewMvc<ContactsListMVCI
         void onClick();
     }
 
-    void bindData();
+    void bindData(List<ContactItemEntity> contactItemEntities);
 
 }

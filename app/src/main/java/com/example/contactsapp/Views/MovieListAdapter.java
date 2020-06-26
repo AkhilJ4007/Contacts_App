@@ -9,10 +9,16 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.contactsapp.Room.ContactItemEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyViewHolder> implements ContactsListItemMVCInter.Listener {
 
     Listener listener;
     LayoutInflater layoutInflater;
+    private List<ContactItemEntity> contactItems = new ArrayList<>();
 
 
     // click from item
@@ -31,6 +37,11 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
         this.listener = listener;
     }
 
+    public void bindData(List<ContactItemEntity> contactItemEntities){
+      this.contactItems = contactItemEntities;
+      notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,12 +53,13 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.contactsListItemMVCInter.registerListener(this);
+        holder.contactsListItemMVCInter.bindMovies(contactItems.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return contactItems != null ? contactItems.size(): 0;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

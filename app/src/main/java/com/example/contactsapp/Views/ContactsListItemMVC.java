@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.contactsapp.R;
+import com.example.contactsapp.Room.ContactItemEntity;
 import com.example.contactsapp.base_views.BaseObservableViewMvc;
 
 public class ContactsListItemMVC extends BaseObservableViewMvc<ContactsListItemMVCInter.Listener> implements ContactsListItemMVCInter {
@@ -33,7 +34,9 @@ public class ContactsListItemMVC extends BaseObservableViewMvc<ContactsListItemM
     }
 
     @Override
-    public void bindMovies() {
+    public void bindMovies(ContactItemEntity contactItemEntity) {
+
+        textView.setText(contactItemEntity.getFirst_name());
 
     }
 }

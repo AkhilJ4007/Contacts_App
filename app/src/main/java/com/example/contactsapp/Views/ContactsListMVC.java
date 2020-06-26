@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.contactsapp.R;
+import com.example.contactsapp.Room.ContactItemEntity;
 import com.example.contactsapp.base_views.BaseObservableViewMvc;
 import com.google.android.material.appbar.MaterialToolbar;
+
+import java.util.List;
 
 public class ContactsListMVC extends BaseObservableViewMvc<ContactsListMVCInter.Listener> implements ContactsListMVCInter,MovieListAdapter.Listener {
 
@@ -50,7 +53,9 @@ public class ContactsListMVC extends BaseObservableViewMvc<ContactsListMVCInter.
 
     // from activity
     @Override
-    public void bindData() {
+    public void bindData(List<ContactItemEntity> contactItemEntities) {
+
+        movieListAdapter.bindData(contactItemEntities);
 
     }
 
