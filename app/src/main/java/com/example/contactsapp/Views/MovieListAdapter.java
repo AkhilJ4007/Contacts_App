@@ -47,7 +47,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 20;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

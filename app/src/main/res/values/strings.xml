@@ -2,4 +2,11 @@
     <string name="app_name">Contacts App</string>
 
     <string name="page_title">Contacts App</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
+
+    <string name="content_description_search">Search des</string>
+    <string name="content_description_more">More Desc</string>
+
+
 </resources>
