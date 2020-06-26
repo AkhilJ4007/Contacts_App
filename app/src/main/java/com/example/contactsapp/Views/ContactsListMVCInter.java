@@ -9,7 +9,7 @@ import java.util.List;
 public interface ContactsListMVCInter extends ObservableViewMvc<ContactsListMVCInter.Listener> {
 
     interface Listener{
-        void onClick();
+        void onClick(String s);
     }
 
     void bindData(List<ContactItemEntity> contactItemEntities);

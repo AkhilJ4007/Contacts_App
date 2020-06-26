@@ -3,6 +3,7 @@ package com.example.contactsapp.Views;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +14,7 @@ import com.example.contactsapp.R;
 import com.example.contactsapp.Room.ContactItemEntity;
 import com.example.contactsapp.base_views.BaseObservableViewMvc;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -23,12 +25,14 @@ public class ContactsListMVC extends BaseObservableViewMvc<ContactsListMVCInter.
     RecyclerView contactsList;
     MovieListAdapter movieListAdapter;
     MaterialToolbar topAppBar;
+    FloatingActionButton floatingActionButton;
 
 
     public ContactsListMVC(LayoutInflater layoutInflater, ViewGroup viewGroup) {
         setRootView(layoutInflater.inflate(R.layout.activity_main,viewGroup,false));
         contactsList = findViewById(R.id.contactsList);
         topAppBar = findViewById(R.id.topAppBar);
+        floatingActionButton = findViewById(R.id.floating_action_bar);
         movieListAdapter = new MovieListAdapter(layoutInflater,this);
         contactsList.setLayoutManager(new LinearLayoutManager(getContext()));
         contactsList.setAdapter(movieListAdapter);
@@ -49,6 +53,16 @@ public class ContactsListMVC extends BaseObservableViewMvc<ContactsListMVCInter.
             }
         });
 
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Log.d("FAB","fab clicked");
+                for(Listener listener:getListeners()){
+                    listener.onClick("FAB");
+                }
+            }
+        });
+
     }
 
     // from activity
@@ -64,7 +78,7 @@ public class ContactsListMVC extends BaseObservableViewMvc<ContactsListMVCInter.
     public void onClick() {
 
         for(Listener listener:getListeners()){
-            listener.onClick();
+            listener.onClick("recycler");
         }
 
     }

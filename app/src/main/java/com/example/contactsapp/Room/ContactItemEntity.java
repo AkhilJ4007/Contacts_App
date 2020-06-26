@@ -1,5 +1,6 @@
 package com.example.contactsapp.Room;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,6 +12,7 @@ public class ContactItemEntity implements Serializable {
     @PrimaryKey
     @ColumnInfo(name = "id")
     private Integer id;
+    @NonNull
     @ColumnInfo(name = "first_name")
     private String first_name;
     @ColumnInfo(name = "last_name")
@@ -19,6 +21,7 @@ public class ContactItemEntity implements Serializable {
     private String address;
     @ColumnInfo(name = "email")
     private String email;
+    @NonNull
     @ColumnInfo(name = "phone_number")
     private Integer phone_number;
 
